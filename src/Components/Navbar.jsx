@@ -28,27 +28,27 @@ const Navbar = () => {
     const links = <>
         <li>
             <NavLink className={({ isActive }) =>
-                `hover:text-info ${isActive && 'border-l-3 font-semibold text-info pl-1 border-info'}`
+                `hover:text-info duration-100 ${isActive && 'border-l-3 text-info pl-1 border-info'}`
             } to='/'>Home</NavLink>
         </li>
         <li>
             <NavLink className={({ isActive }) =>
-                `hover:text-info ${isActive && 'text-secondary'}`
+                `hover:text-info duration-100 ${isActive && 'text-secondary'}`
             } to='/all-articles'>All Articles</NavLink>
         </li>
         <li>
             <NavLink className={({ isActive }) =>
-                ` hover:text-info ${isActive && 'text-secondary'}`
+                ` hover:text-info duration-100 ${isActive && 'text-secondary'}`
             } to='/my-articles'>My Articles</NavLink>
         </li>
         <li>
             <NavLink className={({ isActive }) =>
-                ` hover:text-info ${isActive && 'text-secondary'}`
+                ` hover:text-info duration-100 ${isActive && 'text-secondary'}`
             } to='/post-article'>Post Article</NavLink>
         </li>
         <li>
             <NavLink className={({ isActive }) =>
-                ` hover:text-info ${isActive && 'text-secondary'}`
+                ` hover:text-info duration-100 ${isActive && 'text-secondary'}`
             } to='/about-us'>About Us</NavLink>
         </li>
         {/* {user ? (<></>) : (
@@ -74,11 +74,11 @@ const Navbar = () => {
     // }
     return (
         <nav>
-            <div className='flex justify-between py-5 items-center'>
+            <div className='flex justify-between py-4 items-center'>
                 <div>
                     <Link to='/'>
-                        <h1 className='text-neutral text-xl font-semibold flex gap-2 items-center'>
-                           <img className='w-5 h-5' src={wave} alt="" /> <span>ShareWave</span></h1>
+                        <h1 className="text-xl font-semibold flex gap-2 items-center bg-gradient-to-r from-secondary via-info-content to-info bg-clip-text text-transparent">
+                            <img className='w-6 h-5' src={wave} alt="" /> <span>ShareWave</span></h1>
                     </Link>
                 </div>
                 <div>
@@ -87,6 +87,11 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className='flex gap-2 items-center'>
+                    <div>
+                        <Link to='/login'>
+                            <button className='text-neutral font-medium mr-1 text-sm hover:text-info cursor-pointer duration-100 border hover:border-info border-neutral px-3 py-1 will-change-transform rounded-sm'>Login</button>
+                        </Link>
+                    </div>
                     <label className="swap swap-rotate">
                         <input type="checkbox" onChange={toggleTheme} checked={theme === 'dark'} />
 
