@@ -45,55 +45,53 @@ const Login = () => {
     // };
 
     return (
-        <div className="flex justify-center">
+        <div className="flex justify-center items-center min-h-screen px-4 bg-primary">
             <title>Login | ShareWave</title>
-            <div className="card bg-base-100 w-full max-w-sm shadow-2xl my-10">
-                <h2 className="text-primary font-semibold text-xl pt-6 mx-6 text-center">Login your account</h2>
+            <div className="card bg-slate-900 text-white w-full max-w-sm shadow-info ring-offset-1 ring-offset-info shadow-[0_0_15px] hover:shadow-[0_0_20px] transition duration-300">
+                <h2 className="text-neutral font-semibold text-xl pt-6 mx-6 text-center opacity-80">Login your account</h2>
                 <div className="card-body">
                     <form onSubmit={handleLogin} className="fieldset px-3">
                         <label className="label font-medium text-sm">Email</label>
                         <input
                             type="email"
-                            // ref={emailRef}
-                            className="input w-full text-xs"
+                            className="input input-bordered w-full text-xs bg-primary text- border-accent focus:ring-2 focus:ring-neutral"
                             placeholder="Enter your email address"
                             name="email"
                         />
                         <label className="label font-medium text-sm">Password</label>
                         <input
                             type="password"
-                            className="input w-full text-xs"
+                            className="input input-bordered w-full text-xs bg-slate-800 text-white border-accent focus:ring-2 focus:ring-neutral"
                             placeholder="Enter your password"
                             name="password"
                         />
                         <div>
                             <button
                                 type="button"
-                                // onClick={handleForgetClick}
-                                className="link link-hover font-medium text-sm text-accent"
+                                className="link link-hover font-medium text-xs opacity-70  text-neutral"
                             >
                                 Forgot password?
                             </button>
                         </div>
-                        <button type="submit" className="btn btn-primary mt-3 hover:btn-accent hover:text-white duration-300">
+                        <button type="submit" className=" mt-3 py-2.5 text-sm rounded-sm font-medium bg-primary border-info border-1 cursor-pointer text-neutral hover:bg-gray-400 hover:text-primary duration-200">
                             Login
                         </button>
-                        {error && <p className="text-red-600 mt-1 font-medium text-sm">{error}</p>}
+                        {error && <p className="text-error mt-1 font-medium text-sm">{error}</p>}
                     </form>
                     <div className="flex items-center justify-center mb-1">
-                        <div className="border-t border-gray-300 flex-grow border-1"></div>
-                        <span className="mx-4 text-gray-500">or</span>
-                        <div className="border-t border-gray-300 flex-grow border-1"></div>
+                        <div className="border-t border-gray-500 flex-grow"></div>
+                        <span className="mx-4 text-gray-400">or</span>
+                        <div className="border-t border-gray-500 flex-grow"></div>
                     </div>
                     <button
                         onClick={handleGoogleLogin}
-                        className="btn bg-white text-accent border-[#e5e5e5] border-2 "
+                        className="py-2.5 text-sm rounded-sm font-medium bg-primary border-info border-1 cursor-pointer text-neutral hover:bg-gray-400 hover:text-primary duration-200 flex justify-center gap-2 mx-3"
                     >
                         <FcGoogle size={18} />
                         Login with Google
                     </button>
-                    <p className="pt-1 text-sm text-accent font-medium">
-                        Don’t Have An Account?{' '}
+                    <p className="pt-1 text-sm text-neutral font-medium mx-3">
+                        <span className='opacity-70'>Don’t Have An Account ? </span>
                         <Link to="/register" state={location.state} className="text-info hover:underline cursor-pointer">
                             Register
                         </Link>
@@ -101,6 +99,7 @@ const Login = () => {
                 </div>
             </div>
         </div>
+
     );
 };
 

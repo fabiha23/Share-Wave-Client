@@ -51,7 +51,7 @@ const Navbar = () => {
                 ` hover:text-info duration-100 ${isActive && 'text-secondary'}`
             } to='/about-us'>About Us</NavLink>
         </li>
-        {user ? (<></>) : (
+        {/* {user ? (<></>) : (
             <>
                 <li>
                     <NavLink className={({ isActive }) =>
@@ -59,7 +59,7 @@ const Navbar = () => {
                     } to='/login'>Login</NavLink>
                 </li>
             </>)
-        }
+        } */}
     </>
 
     const handleSignOut = () => {
@@ -83,9 +83,11 @@ const Navbar = () => {
                 </div>
                 <div className='flex gap-2 items-center'>
                     <div>
-                        <Link to='/login'>
-                            <button className='text-neutral font-medium mr-1 text-sm hover:text-info cursor-pointer duration-100 border hover:border-info border-neutral px-3 py-1 will-change-transform rounded-sm'>Login</button>
-                        </Link>
+                        {
+                            user ? <></> : <Link to='/login'>
+                                <button className='text-neutral font-medium mr-1 text-sm hover:text-info cursor-pointer duration-100 border hover:border-info border-neutral px-3 py-1 will-change-transform rounded-sm'>Login</button>
+                            </Link>
+                        }
                     </div>
                     <label className="swap swap-rotate">
                         <input type="checkbox" onChange={toggleTheme} checked={theme === 'dark'} />
