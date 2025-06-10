@@ -102,7 +102,7 @@ const Navbar = () => {
                         <div className='relative'>
                             <img onClick={() => setOpenUser(!openUser)} className='w-7 h-7 lg:w-8 lg:h-8 object-cover rounded-full cursor-pointer' src={user.photoURL} alt="User" />
                             {openUser && (
-                                <div className="absolute right-0 mt-2 bg-base-200 p-3 shadow rounded z-50 text-accent  border-2 border-neutral w-50 space-y-2">
+                                <div className="absolute right-0 mt-2 bg-base-200 p-3 shadow rounded z-50 text-accent top-9 border-2 border-neutral w-50 space-y-2">
                                     <p className='font-medium'>{user.displayName}</p>
                                     <Link to='/my-articles'>
                                         <p>My Articles</p>

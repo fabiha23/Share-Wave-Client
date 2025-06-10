@@ -4,7 +4,7 @@ import Banner from '../Components/Banner';
 const Home = () => {
     return (
         <div>
-            <section className=' min-h-[calc(100vh-62px)]'>
+            <section className=''>
                 <Banner></Banner>
             </section>
         </div>
