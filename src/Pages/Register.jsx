@@ -50,17 +50,7 @@ const Register = () => {
                             photoURL: userProfile.photo
                         })
                         //add user to db
-                        // fetch('http://localhost:3000/users', {
-                        //     method: 'POST',
-                        //     headers: {
-                        //         'content-type': 'application/json'
-                        //     },
-                        //     body: JSON.stringify(userProfile)
-                        // })
-                        //     .then(res => res.json())
-                        //     .then(data => {
-                        //         console.log(data);
-                        //     })
+
                         axios.post(`${import.meta.env.VITE_API_URL}/users`, userProfile)
                             .then(res => {
                                 console.log(res.data);
@@ -94,13 +84,6 @@ const Register = () => {
                     .catch(err => {
                         console.log(err);
                     })
-                // fetch('http://localhost:3000/users', {
-                //     method: 'POST',
-                //     headers: {
-                //         'content-type': 'application/json'
-                //     },
-                //     body: JSON.stringify(userProfile)
-                // })
             })
             .catch(err => console.log(err))
     }
