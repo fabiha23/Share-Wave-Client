@@ -46,7 +46,7 @@ const Login = () => {
 
     return (
         <div className="flex justify-center">
-            <title>Login</title>
+            <title>Login | ShareWave</title>
             <div className="card bg-base-100 w-full max-w-sm shadow-2xl my-10">
                 <h2 className="text-primary font-semibold text-xl pt-6 mx-6 text-center">Login your account</h2>
                 <div className="card-body">

@@ -2,15 +2,15 @@ import React, { use, useEffect, useState } from 'react';
 import { IoMenu, IoMoonOutline } from 'react-icons/io5';
 import { RxCross2 } from 'react-icons/rx';
 import { Link, NavLink } from 'react-router';
-// import { AuthDataContext } from '../Contexts/AuthDataContext';
 import { TbLogout2 } from 'react-icons/tb';
 import { FiSun } from 'react-icons/fi';
 import wave from '../assets/wave.png'
+import { AuthDataContext } from '../contexts/AuthDataContext';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
-    // const [openUser, setOpenUser] = useState(false)
-    // const { user, signOutUser } = use(AuthDataContext)
+    const [openUser, setOpenUser] = useState(false)
+    const { user, signOutUser } = use(AuthDataContext)
     const [theme, setTheme] = useState('light');
 
     useEffect(() => {
@@ -51,27 +51,22 @@ const Navbar = () => {
                 ` hover:text-info duration-100 ${isActive && 'text-secondary'}`
             } to='/about-us'>About Us</NavLink>
         </li>
-        {/* {user ? (<></>) : (
+        {user ? (<></>) : (
             <>
                 <li>
                     <NavLink className={({ isActive }) =>
                         `mr-3 ${isActive ? 'text-primary' : 'text-accent hover:text-primary'}`
                     } to='/login'>Login</NavLink>
                 </li>
-                <li>
-                    <NavLink className={({ isActive }) =>
-                        `mr-3 ${isActive ? 'text-primary' : 'text-accent hover:text-primary'}`
-                    } to='/register'>Register</NavLink>
-                </li>
             </>)
-        } */}
+        }
     </>
 
-    // const handleSignOut = () => {
-    //     signOutUser()
-    //         .then(() => console.log('sign out hoise'))
-    //         .catch(error => console.log(error))
-    // }
+    const handleSignOut = () => {
+        signOutUser()
+            .then(() => console.log('sign out hoise'))
+            .catch(error => console.log(error))
+    }
     return (
         <nav>
             <div className='flex justify-between py-4 items-center'>
@@ -101,7 +96,7 @@ const Navbar = () => {
                         {/* Moon icon (dark mode) */}
                         <IoMoonOutline className="text-neutral swap-off w-6 h-6" />
                     </label>
-                    {/* {user &&
+                    {user &&
                         <div className='relative'>
                             <img onClick={() => setOpenUser(!openUser)} className='w-7 h-7 lg:w-8 lg:h-8 object-cover rounded-full cursor-pointer' src={user.photoURL} alt="User" />
                             {openUser && (
@@ -112,7 +107,7 @@ const Navbar = () => {
                                 </div>
                             )}
                         </div>
-                    } */}
+                    }
                     <span className='text-neutral' onClick={() => setOpen(!open)}>{
                         open ? <RxCross2 size={32} /> : <IoMenu size={32} className='xl:hidden' />
                     }
