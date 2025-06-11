@@ -26,7 +26,12 @@ const Login = () => {
                 console.log('logged in', result);
                 navigate(location?.state || '/');
             })
-            .catch((error) => console.log(error));
+            .catch((error) => {
+                console.log(error);
+                if(error.message==='Firebase: Error (auth/invalid-credential).'){
+                    setError('Invalid email or password')
+                }
+            });
     };
 
     const handleGoogleLogin = () => {

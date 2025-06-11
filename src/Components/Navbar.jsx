@@ -33,22 +33,22 @@ const Navbar = () => {
         </li>
         <li>
             <NavLink className={({ isActive }) =>
-                `hover:text-info duration-100 ${isActive && 'text-secondary'}`
+                `hover:text-info duration-100 ${isActive && 'border-l-3 text-info pl-1 border-info'}`
             } to='/all-articles'>All Articles</NavLink>
         </li>
         <li>
             <NavLink className={({ isActive }) =>
-                ` hover:text-info duration-100 ${isActive && 'text-secondary'}`
+                ` hover:text-info duration-100 ${isActive && 'border-l-3 text-info pl-1 border-info'}`
             } to='/my-articles'>My Articles</NavLink>
         </li>
         <li>
             <NavLink className={({ isActive }) =>
-                ` hover:text-info duration-100 ${isActive && 'text-secondary'}`
+                ` hover:text-info duration-100 ${isActive && 'border-l-3 text-info pl-1 border-info'}`
             } to='/post-article'>Post Article</NavLink>
         </li>
         <li>
             <NavLink className={({ isActive }) =>
-                ` hover:text-info duration-100 ${isActive && 'text-secondary'}`
+                ` hover:text-info duration-100 ${isActive && 'border-l-3 text-info pl-1 border-info'}`
             } to='/about-us'>About Us</NavLink>
         </li>
         {/* {user ? (<></>) : (
