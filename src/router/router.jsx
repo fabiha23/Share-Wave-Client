@@ -4,6 +4,9 @@ import Home from "../Pages/Home";
 import AuthLayout from "../layouts/AuthLayout";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import MyArticles from "../Pages/MyArticles";
+import PostArticle from "../Pages/PostArticle";
+import PrivateRoutes from './PrivateRoutes'
 
 export const router = createBrowserRouter([
   {
@@ -15,7 +18,12 @@ export const router = createBrowserRouter([
         Component:Home
       },
       {
-
+        path:'/my-articles',
+        element: <PrivateRoutes><MyArticles></MyArticles></PrivateRoutes> ,
+      },
+      {
+        path:'/post-article',
+        element: <PrivateRoutes><PostArticle></PostArticle></PrivateRoutes> ,
       }
     ]
   },
