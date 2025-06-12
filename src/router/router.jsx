@@ -16,31 +16,31 @@ export const router = createBrowserRouter([
     Component: MainLayout,
     children: [
       {
-        index:true,
-        Component:Home
+        index: true,
+        Component: Home
       },
       {
-        path:'/all-articles',
-        Component:AllArticles
+        path: '/all-articles',
+        Component: AllArticles,
       },
       {
-        path:'/about-us',
-        Component:AboutUs
+        path: '/about-us',
+        Component: AboutUs
       },
       {
-        path:'/my-articles',
-        element: <PrivateRoutes><MyArticles></MyArticles></PrivateRoutes> ,
+        path: '/my-articles',
+        element: <PrivateRoutes><MyArticles></MyArticles></PrivateRoutes>,
       },
       {
-        path:'/post-article',
-        element: <PrivateRoutes><PostArticle></PostArticle></PrivateRoutes> ,
+        path: '/post-article',
+        element: <PrivateRoutes><PostArticle></PostArticle></PrivateRoutes>,
       }
     ]
   },
   {
     path: '/',
     Component: AuthLayout,
-    children:[
+    children: [
       {
         path: '/login',
         Component: Login
@@ -53,6 +53,6 @@ export const router = createBrowserRouter([
   },
   {
     path: '/*',
-    element:<>errorr</>
+    element: <>errorr</>
   }
 ]);
