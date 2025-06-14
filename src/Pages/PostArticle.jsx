@@ -113,12 +113,13 @@ const PostArticle = () => {
                                     className="select w-full focus:outline-0 focus:border-neutral focus:shadow-md text-accent"
                                 >
                                     <option value="">Select Category</option>
-                                    <option value="Tech">Tech</option>
-                                    <option value="Lifestyle">Lifestyle</option>
-                                    <option value="Food">Home</option>
-                                    <option value="Travel">Travel</option>
-                                    <option value="Nutrition">Health and Nutrition</option>
-                                    <option value="Fitness">Fitness</option>
+                                    <option value="Career & Skills">Career & Skills</option>
+                                    <option value="Study Tips">Study Tips</option>
+                                    <option value="Tech & Tools">Tech & Tools</option>
+                                    <option value="Mental Health Wellness">Mental Health Wellness</option>
+                                    <option value="Fitness & Nutrition">Fitness & Nutrition</option>
+                                    <option value="Productivity">Productivity</option>
+                                    <option value="Money Management">Money Management</option>
                                     <option value="Other">Other</option>
                                 </select>
                             </fieldset>
@@ -129,7 +130,7 @@ const PostArticle = () => {
                                     name="tags"
                                     type="text"
                                     className="input w-full focus:outline-0 focus:border-neutral focus:shadow-md"
-                                    placeholder="e.g. tech, react, javascript"
+                                    placeholder="e.g. Career & Skills, react, javascript"
                                 />
                             </fieldset>
 

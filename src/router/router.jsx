@@ -9,6 +9,7 @@ import MyArticles from "../Pages/MyArticles";
 import PostArticle from "../Pages/PostArticle";
 import AllArticles from "../Pages/AllArticles";
 import PrivateRoutes from './PrivateRoutes'
+import ArticleDetails from "../Pages/ArticleDetails";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +35,11 @@ export const router = createBrowserRouter([
       {
         path: '/post-article',
         element: <PrivateRoutes><PostArticle></PostArticle></PrivateRoutes>,
+      },
+      {
+        path: "/articles/:id",
+        element: <PrivateRoutes><ArticleDetails /></PrivateRoutes>,
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/articles/${params.id}`)
       }
     ]
   },
