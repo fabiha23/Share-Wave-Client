@@ -8,13 +8,13 @@ import { motion } from "motion/react"
 const Banner = () => {
     const button = <Link>
                             <motion.button whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.95 }} href="#_" class="relative inline-flex items-center justify-center p-4 px-8 py-3 overflow-hidden font-medium text-indigo-600 rounded-sm shadow-sm shadow-gray-600 group cursor-pointer">
-                                <span class="absolute top-0 left-0 w-40 h-40 -mt-10 -ml-3 transition-all duration-700 bg-secondary rounded-full blur-md ease"></span>
-                                <span class="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-180 ease">
-                                    <span class="absolute bottom-0 left-0 w-24 h-24 -ml-10 bg-secondary rounded-full blur-md"></span>
-                                    <span class="absolute bottom-0 right-0 w-24 h-24 -mr-10 bg-info rounded-full blur-md"></span>
+                                whileTap={{ scale: 0.95 }} href="#_" className="relative inline-flex items-center justify-center p-4 px-8 py-3 overflow-hidden font-medium text-indigo-600 rounded-sm shadow-sm shadow-gray-600 group cursor-pointer">
+                                <span className="absolute top-0 left-0 w-40 h-40 -mt-10 -ml-3 transition-all duration-700 bg-secondary rounded-full blur-md ease"></span>
+                                <span className="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-180 ease">
+                                    <span className="absolute bottom-0 left-0 w-24 h-24 -ml-10 bg-secondary rounded-full blur-md"></span>
+                                    <span className="absolute bottom-0 right-0 w-24 h-24 -mr-10 bg-info rounded-full blur-md"></span>
                                 </span>
-                                <span class="relative text-white">Explore Articles</span>
+                                <span className="relative text-white">Explore Articles</span>
                             </motion.button>
                         </Link>
     return (

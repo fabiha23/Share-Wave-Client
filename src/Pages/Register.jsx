@@ -4,6 +4,7 @@ import { updateProfile } from 'firebase/auth';
 import { use, useState } from 'react';
 import { AuthDataContext } from '../contexts/AuthDataContext';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Register = () => {
 
@@ -37,6 +38,13 @@ const Register = () => {
         registerUser(userProfile.email, password, userProfile.name, userProfile.photo)
             .then(res => {
                 console.log(res.user)
+                Swal.fire({
+                    title: 'Good job!',
+                    text: 'Article Published',
+                    icon: 'success',
+                    timer: 3000,
+                    confirmButtonColor: '#10B981'
+                })
                 navigate(location?.state || '/')
                 setError('')
                 const profile = {
@@ -76,6 +84,13 @@ const Register = () => {
                     email: res.user.email,
                     photo: res.user.photoURL
                 };
+                Swal.fire({
+                    title: 'Good job!',
+                    text: 'Article Published',
+                    icon: 'success',
+                    timer: 3000,
+                    confirmButtonColor: '#10B981'
+                })
                 navigate(location?.state || '/')
                 axios.post(`${import.meta.env.VITE_API_URL}/users`, userProfile)
                     .then(res => {

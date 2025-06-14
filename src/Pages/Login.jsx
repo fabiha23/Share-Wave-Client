@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { useNavigate, useLocation, Link } from 'react-router';
 import { AuthDataContext } from '../contexts/AuthDataContext';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const { loginUser, signInWithGoogle } = use(AuthDataContext);
@@ -23,12 +24,19 @@ const Login = () => {
         loginUser(email, password)
             .then((result) => {
                 setError('');
+                Swal.fire({
+                    title: 'Good job!',
+                    text: 'Article Published',
+                    icon: 'success',
+                    timer: 3000,
+                    confirmButtonColor: '#10B981'
+                })
                 console.log('logged in', result);
                 navigate(location?.state || '/');
             })
             .catch((error) => {
                 console.log(error);
-                if(error.message==='Firebase: Error (auth/invalid-credential).'){
+                if (error.message === 'Firebase: Error (auth/invalid-credential).') {
                     setError('Invalid email or password')
                 }
             });
@@ -39,6 +47,13 @@ const Login = () => {
             .then((res) => {
                 setError('');
                 console.log(res.user);
+                Swal.fire({
+                    title: 'Good job!',
+                    text: 'Article Published',
+                    icon: 'success',
+                    timer: 3000,
+                    confirmButtonColor: '#10B981'
+                })
                 navigate(location?.state || '/');
             })
             .catch((err) => console.log(err));

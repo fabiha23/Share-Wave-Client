@@ -3,12 +3,14 @@ import { AuthDataContext } from '../contexts/AuthDataContext';
 import JoditEditor from 'jodit-react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router';
 
 
 const PostArticle = () => {
     const { user } = useContext(AuthDataContext);
     const [content, setContent] = useState('');
     const [mongoUser, setMongoUser] = useState(null)
+    const navigate =useNavigate()
     // console.log(user);
 
     useEffect(() => {
@@ -34,6 +36,7 @@ const PostArticle = () => {
 
         newArticle.content = plainTextContent;
         newArticle.tags = tags
+        newArticle.likedBy=[]
         newArticle.author_id = mongoUser?._id;
         newArticle.author_photo = user?.photoURL
         console.log(newArticle);
@@ -50,6 +53,7 @@ const PostArticle = () => {
                         timer:3000,
                         confirmButtonColor:'#10B981'
                     })
+                    navigate('/')
                     form.reset()
                 }
             })
