@@ -10,7 +10,7 @@ const PostArticle = () => {
     const { user } = useContext(AuthDataContext);
     const [content, setContent] = useState('');
     const [mongoUser, setMongoUser] = useState(null)
-    const navigate =useNavigate()
+    const navigate = useNavigate()
     // console.log(user);
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const PostArticle = () => {
 
         newArticle.content = plainTextContent;
         newArticle.tags = tags
-        newArticle.likedBy=[]
+        newArticle.likedBy = []
         newArticle.author_id = mongoUser?._id;
         newArticle.author_photo = user?.photoURL
         console.log(newArticle);
@@ -50,15 +50,14 @@ const PostArticle = () => {
                         title: 'Good job!',
                         text: 'Article Published',
                         icon: 'success',
-                        timer:3000,
-                        confirmButtonColor:'#10B981'
+                        timer: 3000,
+                        confirmButtonColor: '#10B981'
                     })
                     navigate('/')
                     form.reset()
                 }
             })
             .catch(err => console.log(err))
-
     }
 
     return (

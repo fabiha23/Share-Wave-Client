@@ -8,10 +8,12 @@ import { CiEdit } from 'react-icons/ci';
 import { BiEditAlt } from 'react-icons/bi';
 import Swal from 'sweetalert2';
 import { article } from 'motion/react-client';
+import UpdateModal from '../Components/UpdateModal';
 
 const MyArticles = () => {
     const { user, loading, setLoading } = useAuth()
-    const [myArticle, setMyArticle] = useState(null)
+    const [myArticle, setMyArticle] = useState([])
+    const [selectedArticle, setSelectedArticle] = useState(null)
 
     useEffect(() => {
         axios(`${import.meta.env.VITE_API_URL}/articles?email=${user?.email}`)
@@ -52,6 +54,13 @@ const MyArticles = () => {
         });
     }
 
+    useEffect(() => {
+        if (selectedArticle) {
+            const dialog = document.getElementById('my_modal_5')
+            if (dialog) dialog.showModal()
+        }
+    }, [selectedArticle])
+
     return (
         <div className='max-w-7xl xl:mx-auto xl:px-2 lg:px-6 mx-3 py-10'>
             {loading ? <Loading></Loading> :
@@ -77,14 +86,21 @@ const MyArticles = () => {
                                         <td>{article.category}</td>
                                         <td>{article.date}</td>
                                         <td className='pl-8'>{article.likedBy?.length || 0}</td>
-                                        <td className='flex gap-2 items-center '><span className='text-accent rounded-full p-1 duration-300 cursor-pointer hover:bg-slate-300 '><BiEditAlt size={22} /></span> <span onClick={() => handleDelete(article?._id)} className='text-red-600 rounded-full p-1 hover:bg-red-200 cursor-pointer duration-300'><MdOutlineDeleteOutline size={22} /></span></td>
+                                        <td className='flex gap-2 items-center '>
+                                            <span className='text-accent rounded-full p-1 duration-300 cursor-pointer hover:bg-slate-300 '><BiEditAlt onClick={() => {
+                                                document.getElementById('my_modal_5').showModal()
+                                                setSelectedArticle(article)
+                                            }
+                                            } size={22} /></span>
+                                            <span onClick={() => handleDelete(article?._id)} className='text-red-600 rounded-full p-1 hover:bg-red-200 cursor-pointer duration-300'><MdOutlineDeleteOutline size={22} /></span>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
-
                 </div>}
+            <UpdateModal key={selectedArticle?._id} selectedArticle={selectedArticle} />
         </div>
     );
 };
