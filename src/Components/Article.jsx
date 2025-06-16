@@ -9,7 +9,7 @@ const Article = ({ article }) => {
             <img className='mb-2 rounded-sm h-40 object-cover w-full' src={article.thumbnail} alt="" />
             <h3 className="text-lg font-semibold text-accent mb-2 flex-grow">{article.title}</h3>
             <p className="text-sm font-medium text-accent opacity-80 mb-1">By {article.author_name}</p>
-            <p className="text-sm text-accent opacity-70 mb-4">{article.date}</p>
+            <p className="text-sm text-accent opacity-70 mb-4">{new Date(article?.date).toLocaleDateString()}</p>
             <Link to={`/articles/${article._id}`}>
                 <button className="relative inline-flex items-center justify-center px-4 py-1 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-1 border-info rounded-md shadow-md group w-fit cursor-pointer">
                     <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-info group-hover:translate-x-0 ease">
