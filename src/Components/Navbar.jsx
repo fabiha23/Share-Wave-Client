@@ -81,7 +81,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className='flex gap-2 items-center'>
+                <div className='flex gap-3 items-center'>
                     <div>
                         {
                             user ? <></> : <Link to='/login'>

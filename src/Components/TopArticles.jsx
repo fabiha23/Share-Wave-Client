@@ -29,7 +29,7 @@ const TopArticles = () => {
                         {topArticles.map((article) => (
                             <motion.div initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: false, amount: 0.9 }}  // 
+                                viewport={{ once: false, amount: 0.7 }}  // 
                                 transition={{ duration: 0.8, ease: "easeOut" }}
                                 key={article._id}
                                 className="relative bg-base-100 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
