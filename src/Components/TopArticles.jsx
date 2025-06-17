@@ -24,7 +24,7 @@ const TopArticles = () => {
                 <Loading />
             ) : (
                 <>
-                    <h2 className="text-4xl font-bold text-center text-primary mb-8">Featured Articles</h2>
+                    <h2 className="text-3xl font-bold text-center text-primary mb-8">Featured Articles</h2>
                     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                         {topArticles.map((article) => (
                             <motion.div initial={{ opacity: 0, y: 30 }}

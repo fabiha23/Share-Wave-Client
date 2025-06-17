@@ -11,6 +11,7 @@ import AllArticles from "../Pages/AllArticles";
 import PrivateRoutes from './PrivateRoutes'
 import ArticleDetails from "../Pages/ArticleDetails";
 import Loading from "../Components/Loading";
+import CategoryArticle from "../Pages/CategoryArticle";
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
         element: <PrivateRoutes><ArticleDetails /></PrivateRoutes>,
         loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/articles/${params.id}`),
         hydrateFallbackElement:<Loading></Loading>
+      },
+      {
+        path:"/categories/:category",
+        element:<CategoryArticle></CategoryArticle>
       }
     ]
   },
