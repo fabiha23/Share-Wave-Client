@@ -64,7 +64,21 @@ const Navbar = () => {
 
     const handleSignOut = () => {
         signOutUser()
-            .then(() => console.log('sign out hoise'))
+            .then(() => {
+                console.log('sign out hoise')
+                return fetch(`${import.meta.env.VITE_API_URL}/logout`, {
+                    method: 'POST',
+                    credentials: 'include',
+                });
+            })
+            .then(res => {
+                if (res.ok) {
+                    console.log('Signed out from Firebase and backend token cleared');
+                    // Clear any frontend state here, e.g. setUser(null)
+                } else {
+                    console.log('Backend logout failed');
+                }
+            })
             .catch(error => console.log(error))
     }
     return (

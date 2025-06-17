@@ -17,7 +17,9 @@ const ArticleDetails = () => {
 
     useEffect(() => {
         if (user?.email) {
-            axios(`${import.meta.env.VITE_API_URL}/users?email=${user?.email}`)
+            axios(`${import.meta.env.VITE_API_URL}/users?email=${user?.email}`,{
+            withCredentials:true
+        })
                 .then(data => {
                     data?.data?.length > 0 && setMongoUser(data.data[0])
                 })
