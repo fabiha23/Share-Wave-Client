@@ -65,7 +65,7 @@ const MyArticles = () => {
         <div className='max-w-7xl xl:mx-auto xl:px-2 lg:px-6 mx-3 py-10'>
             {loading ? <Loading></Loading> :
                 <div>
-                    <h2 className="text-4xl font-bold text-center text-accent mb-8">My Articles</h2>
+                    <h2 className="text-3xl font-bold text-center text-accent mb-8">My Articles</h2>
                     <div className="overflow-x-auto">
                         <table className="table">
                             <thead>

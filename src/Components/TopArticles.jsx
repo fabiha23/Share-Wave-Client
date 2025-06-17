@@ -42,10 +42,10 @@ const TopArticles = () => {
                                 <h3 className="text-xl font-semibold text-accent my-2 mt-4 line-clamp-2">
                                     {article.title}
                                 </h3>
-                                <p className="text-gray-700 mb-4 line-clamp-3">
+                                <p className="text-accent opacity-75 mb-4 line-clamp-3">
                                     {article.excerpt || article.content?.slice(0, 120) + '...'}
                                 </p>
-                                <div className="flex justify-between text-sm text-gray-500">
+                                <div className="flex justify-between text-sm text-accent opacity-60">
                                     <span>By {article?.author_name}</span>
                                     <span>{new Date(article?.date).toLocaleDateString()}</span>
                                 </div>
