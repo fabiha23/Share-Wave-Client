@@ -25,8 +25,7 @@ const Login = () => {
             .then((result) => {
                 setError('');
                 Swal.fire({
-                    title: 'Good job!',
-                    text: 'Article Published',
+                    title: 'Logged In!',
                     icon: 'success',
                     timer: 3000,
                     confirmButtonColor: '#10B981'
@@ -48,8 +47,7 @@ const Login = () => {
                 setError('');
                 console.log(res.user);
                 Swal.fire({
-                    title: 'Good job!',
-                    text: 'Article Published',
+                    title: 'Logged In!',
                     icon: 'success',
                     timer: 3000,
                     confirmButtonColor: '#10B981'

@@ -5,7 +5,7 @@ import axios from 'axios';
 import Loading from '../Components/Loading';
 
 const AllArticles = () => {
-    const { loading, setLoading } = useAuth()
+    const [ loading, setLoading ] = useState(true)
     const [articles, setArticles] = useState(null)
     const [selected, setSelected] = useState('');
     const filteredArticles = (selected === 'All' || !selected)

@@ -39,8 +39,7 @@ const Register = () => {
             .then(res => {
                 console.log(res.user)
                 Swal.fire({
-                    title: 'Good job!',
-                    text: 'Article Published',
+                    title: 'Account Created!',
                     icon: 'success',
                     timer: 3000,
                     confirmButtonColor: '#10B981'
@@ -85,8 +84,7 @@ const Register = () => {
                     photo: res.user.photoURL
                 };
                 Swal.fire({
-                    title: 'Good job!',
-                    text: 'Article Published',
+                    title: 'Account Created!',
                     icon: 'success',
                     timer: 3000,
                     confirmButtonColor: '#10B981'

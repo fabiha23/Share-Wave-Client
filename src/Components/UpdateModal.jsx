@@ -18,8 +18,6 @@ const UpdateModal = ({ selectedArticle }) => {
         const tags = updatedArticle.tags.split(',').map(tag => tag.trim())
         updatedArticle.tags = tags
 
-
-
         axios.put(`${import.meta.env.VITE_API_URL}/articles/${_id}`, updatedArticle)
             .then(res => {
                 if (res?.data?.modifiedCount) {

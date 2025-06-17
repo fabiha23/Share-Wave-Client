@@ -11,7 +11,8 @@ import AllArticles from "../Pages/AllArticles";
 import PrivateRoutes from './PrivateRoutes'
 import ArticleDetails from "../Pages/ArticleDetails";
 import Loading from "../Components/Loading";
-import CategoryArticle from "../Pages/CategoryArticle";
+import CategoryArticle from "../Pages/Error";
+import Error from "../Pages/CategoryArticle";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +67,6 @@ export const router = createBrowserRouter([
   },
   {
     path: '/*',
-    element: <>errorr</>
+    element: <Error></Error>
   }
 ]);
