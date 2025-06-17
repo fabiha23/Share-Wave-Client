@@ -30,7 +30,7 @@ const Categories = () => {
 
     return (
         <div className="py-10">
-            <h2 className="text-3xl font-bold text-accent mb-8 text-center">Explore by Category</h2>
+            <h2 className="text-3xl font-bold text-accent mb-8 text-center">Explore by Categories</h2>
 
             <div className="grid sm:grid-cols-3 grid-cols-2 lg:grid-cols-4 sm:gap-4 gap-2">
                 {categories.map((cat, i) => (
