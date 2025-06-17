@@ -140,7 +140,9 @@ const Register = () => {
                         Sign Up with Google
                     </button>
                     <p className='pt-1 text-sm text-neutral font-medium mx-3'><span>Already Have an Account ? </span><Link to='/login' className='text-info hover:underline cursor-pointer'>Login</Link></p>
+                    <Link className='ml-3 hover:underline text-neutral text-xs opacity-85' to='/'>Go Back to Home </Link>
                 </div>
+
             </div>
         </div>
     );

@@ -12,7 +12,7 @@
     default: true;
     --color-primary: #1E293B;
     /* navbar, headings, cta, footer bg, slate 800*/
-    --color-secondary: #6366F1;
+    --color-secondary: #4F46E5;
     /* hover, cta, badges, tags, indigo */
     --color-base-100: #FFFFFF;
     /* bg, white*/
@@ -36,27 +36,20 @@
     --color-primary: #0B1120;
     /* navbar, headings, cta, footer bg, light text on dark bg */
 
-    --color-secondary: #818CF8;
+    --color-secondary: #6366F1;
     /* hover, cta, badges, tags, indigo-400 */
-
     --color-base-100: #0F172A;
     /* bg, slate-900 */
-
     --color-base-200: #1E293B;
     /* bg, slate-800 */
-
     --color-accent: #E2E8F0;
     /* text, slate-100 */
-
     --color-info: #34D399;
     /* cta btns, highlight, emerald-400 */
-
     --color-info-content: #38BDF8;
     /* infobadges, messages, sky-400 */
-
     --color-neutral: #CBD5E1;
     /* borders, slate-700 */
-
     --color-error: #FB7185;
     /* error, rose-400 */
 }

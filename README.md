@@ -1,12 +1,44 @@
-# React + Vite
+# 🌊 ShareWave
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**ShareWave** is a modern **knowledge-sharing platform** where users can explore, post, and engage with articles on various topics. Built with React and styled using Tailwind CSS + DaisyUI, ShareWave emphasizes clean design, smooth UX, and community-driven content.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Live Site
 
-## Expanding the ESLint configuration
+👉 [Live Demo](https://your-live-site-link.com)  
+_Replace the link above with your actual deployed URL._
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Features
+
+- 🔍 **Explore Articles by Category**
+- 📝 **Post and Edit Articles** with Rich Text Editor
+- 📊 **ShareWave Stats** section with animated counters
+- 📨 **Newsletter SignUp**
+- 💬 **User Discussions**
+- 🌙 **Light & Dark Theme Support** (via DaisyUI)
+- 🔒 **Authentication with Firebase**
+- ⚡ **Smooth Animations** (Motion, CountUp, Intersection Observer)
+
+---
+
+## 🛠️ Tech Stack
+
+| Purpose            | Technology |
+|--------------------|------------|
+| UI Framework       | React 19   |
+| Styling            | Tailwind CSS, DaisyUI |
+| Routing            | React Router v7 |
+| State Management   | React Context |
+| Auth               | Firebase   |
+| HTTP Requests      | Axios      |
+| Alerts             | SweetAlert2 |
+| Animations         | Motion, CountUp |
+| Rich Text Editor   | Jodit React |
+| Image/Asset Handling | Lottie React, Local Assets |
+
+---
+
+

@@ -78,7 +78,7 @@ const Banner = () => {
               <h2 className="text-primary sm:text-4xl text-2xl lg:text-5xl font-bold">
                 {slides[index].heading}
               </h2>
-              <p className="text-primary opacity-90 mt-3 md:text-xl font-semibold">
+              <p className="text-primary opacity-80 mt-3 md:text-xl font-semibold">
                 {slides[index].desc}
               </p>
               {button}

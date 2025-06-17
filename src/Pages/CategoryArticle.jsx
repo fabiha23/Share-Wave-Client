@@ -1,8 +1,6 @@
 import axios from 'axios';
-import React, { use, useEffect, useState } from 'react';
-import useAuth from '../hooks/useAuth';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
-import { div } from 'motion/react-client';
 import Loading from '../Components/Loading';
 
 const CategoryArticle = () => {
@@ -50,12 +48,9 @@ const CategoryArticle = () => {
                                             </Link>
                                         </div>)
                                     }
-                                </> : <h2 className='text-accent opacity-70 text-2xl font-semibold my-14'>No article Found</h2>
-
-                                }
+                                </> : <h2 className='text-accent opacity-70 text-2xl font-semibold my-14'>No article Found</h2>}
                             </div>
-                        </>
-                }
+                        </>}
             </div>
         </div>
     );

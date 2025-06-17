@@ -114,6 +114,7 @@ const Login = () => {
                             Register
                         </Link>
                     </p>
+                    <Link className='ml-3 hover:underline text-neutral text-xs opacity-85' to='/'>Go Back to Home </Link>
                 </div>
             </div>
         </div>

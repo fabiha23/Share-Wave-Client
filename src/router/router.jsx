@@ -11,8 +11,8 @@ import AllArticles from "../Pages/AllArticles";
 import PrivateRoutes from './PrivateRoutes'
 import ArticleDetails from "../Pages/ArticleDetails";
 import Loading from "../Components/Loading";
-import CategoryArticle from "../Pages/Error";
-import Error from "../Pages/CategoryArticle";
+import CategoryArticle from "../Pages/CategoryArticle";
+import Error from "../Pages/Error";
 
 export const router = createBrowserRouter([
   {
