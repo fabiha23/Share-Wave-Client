@@ -2,17 +2,46 @@ import axios from 'axios';
 import JoditEditor from 'jodit-react';
 import React, { useEffect, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
+import Swal from 'sweetalert2';
 
 const UpdateModal = ({ selectedArticle }) => {
-    console.log(selectedArticle);
+    // console.log(selectedArticle);
     const { _id, title, date, author_email, author_name, author_photo, content, tags, thumbnail, category } = selectedArticle || {}
     const [editorContent, setEditorContent] = useState(content || '');
+
+    const handleUpRecipe = e => {
+        e.preventDefault()
+        const form = e.target;
+        const formData = new FormData(form);
+        const updatedArticle = Object.fromEntries(formData.entries())
+        console.log(updatedArticle);
+        const tags = updatedArticle.tags.split(',').map(tag => tag.trim())
+        updatedArticle.tags = tags
+
+
+
+        axios.put(`${import.meta.env.VITE_API_URL}/articles/${_id}`, updatedArticle)
+            .then(res => {
+                if (res?.data?.modifiedCount) {
+                    Swal.fire({
+                        title: "Updated Your Article",
+                        icon: "success",
+                        draggable: true,
+                        timer: 3000,
+                        confirmButtonColor: "#10B981"
+                    });
+                    document.getElementById('my_modal_5').close();
+                };
+            })
+            .catch(err => console.log(err))
+
+    }
 
     return (
         <div>
             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box bg-base-200 relative">
-                    <form>
+                    <form onSubmit={handleUpRecipe}>
                         <div className="grid grid-cols-2 gap-4">
                             <fieldset className="fieldset  rounded-box col-span-2">
                                 <label className="text-accent font-semibold text-base">Title</label>
@@ -106,8 +135,8 @@ const UpdateModal = ({ selectedArticle }) => {
                                 />
                             </fieldset>
                         </div>
+                        <input type="submit" value="Update" className='hover:bg-info text-base-100 py-2 text-center mt-2 font-medium rounded-sm bg-primary duration-200 cursor-pointer w-full' />
                     </form>
-                    <p className='hover:bg-info text-base-100 py-2 text-center mt-2 font-medium rounded-sm bg-primary duration-200 cursor-pointer'>Update</p>
                     <div className="modal-action absolute top-0 right-6">
                         <form method="dialog">
                             {/* if there is a button in form, it will close the modal */}

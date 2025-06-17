@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import useAuth from '../hooks/useAuth'
 import Article from '../Components/Article';
 import axios from 'axios';
-import { div } from 'motion/react-client';
 import Loading from '../Components/Loading';
 
 const AllArticles = () => {
