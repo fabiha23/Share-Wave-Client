@@ -6,7 +6,7 @@
 
 ## 🔗 Live Site
 
-👉 [Live Demo](https://your-live-site-link.com)  
+👉 [Live Demo](https://adorable-axolotl-f0632a.netlify.app/)  
 _Replace the link above with your actual deployed URL._
 
 ---
