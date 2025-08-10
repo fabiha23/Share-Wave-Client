@@ -18,7 +18,7 @@ const Footer = () => {
     </nav>
     <nav>
         <div className="grid grid-flow-col gap-4 text-neutral">
-            <a href="https://www.facebook.com/fabiha.amatullah.2024/"
+            <a href="https://www.facebook.com"
                 target="_blank"
                 rel="noopener noreferrer">
                 <FaFacebook size={20}></FaFacebook>
