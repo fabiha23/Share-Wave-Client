@@ -21,6 +21,7 @@ const UpdateModal = ({ selectedArticle }) => {
         axios.put(`${import.meta.env.VITE_API_URL}/articles/${_id}`, updatedArticle)
             .then(res => {
                 if (res?.data?.modifiedCount) {
+                    console.log(res.data);
                     Swal.fire({
                         title: "Updated Your Article",
                         icon: "success",

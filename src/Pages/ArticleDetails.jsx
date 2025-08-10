@@ -11,8 +11,8 @@ const ArticleDetails = () => {
     const article = useLoaderData();
     const [mongoUser, setMongoUser] = useState(null)
     const { _id, author_name, author_photo, author_email, date, category, content, tags, thumbnail, title, likedBy } = article || {};
-    const [liked, setLiked] = useState(likedBy.includes(user?.email))
-    const [likeCount, setLikeCount] = useState(likedBy.length)
+    const [liked, setLiked] = useState(likedBy?.includes(user?.email))
+    const [likeCount, setLikeCount] = useState(likedBy?.length)
     const [comments, setComments] = useState([])
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const ArticleDetails = () => {
             withCredentials:true
         })
                 .then(data => {
-                    data?.data?.length > 0 && setMongoUser(data.data[0])
+                    data?.data?.length > 0 && setMongoUser(data?.data[0])
                 })
                 .catch(err => console.log(err))
         }
@@ -33,7 +33,7 @@ const ArticleDetails = () => {
             .then(res => {
                 const isLiked = res?.data?.liked
                 console.log(res.data);
-                setLiked(res?.data.liked)
+                setLiked(res?.data?.liked)
                 setLikeCount(prev => isLiked ? prev + 1 : prev - 1)
             })
             .catch(err => console.log(err))
@@ -54,8 +54,8 @@ const ArticleDetails = () => {
         //send to db
         axios.post(`${import.meta.env.VITE_API_URL}/comments`, newComment)
             .then(res => {
-                console.log('in post', res.data);
-                if (res.data.acknowledged) {
+                // console.log('in post', res.data);
+                if (res?.data?.acknowledged) {
                     setComments(prev => [...prev, newComment])
                     e.target.reset()
 
@@ -68,9 +68,9 @@ const ArticleDetails = () => {
         if (_id) {
             axios.get(`${import.meta.env.VITE_API_URL}/comments?article_id=${_id}`)
                 .then(res => {
-                    setComments(res.data);
+                    setComments(res?.data);
                     setLoading(false);
-                    console.log('in get', res.data);
+                    // console.log('in get', res.data);
                 })
                 .catch(err => {
                     console.error(err);
@@ -96,7 +96,7 @@ const ArticleDetails = () => {
                         <div className='space-y-2'>
                             <h1 className='font-bold text-3xl md:text-4xl text-accent'>{title}</h1>
                             <div className='text-info-content sm:space-x-4 space-x-3 text-sm'>
-                                {tags.map((tag, i) => <span key={i}>#{tag}</span>)}
+                                {tags?.map((tag, i) => <span key={i}>#{tag}</span>)}
                             </div>
                             {/* <img className='w-full h-90 object-cover' src={thumbnail} alt="" /> */}
 
@@ -112,7 +112,7 @@ const ArticleDetails = () => {
                                         <FaRegHeart color='#F43F5E' size={23} />}
                                 </button>
                                 {likeCount}</p>
-                            <p className='flex items-center gap-2 sm:text-xl font-medium text-accent'><FaRegComment size={22} /> {comments.length} comments</p>
+                            <p className='flex items-center gap-2 sm:text-xl font-medium text-accent'><FaRegComment size={22} /> {comments?.length} comments</p>
                         </div>
                         {/* Comment section */}
                         <div>
@@ -130,9 +130,9 @@ const ArticleDetails = () => {
                             </div>
                             {comments && <div className='flex items-center gap-4'>
                                 <div className='w-full'>
-                                    {comments.map((comment,i) => <div className='flex items-center gap-2 mt-4 ' key={i}>
-                                        <img className='w-9 rounded-full' src={comment.user_photo} alt="" />
-                                        <h3 className='border-neutral border-1 p-2 px-4 rounded-sm w-full text-accent opacity-85 font-medium'>{comment.comment}</h3>
+                                    {comments?.map((comment,i) => <div className='flex items-center gap-2 mt-4 ' key={i}>
+                                        <img className='w-9 rounded-full' src={comment?.user_photo} alt="" />
+                                        <h3 className='border-neutral border-1 p-2 px-4 rounded-sm w-full text-accent opacity-85 font-medium'>{comment?.comment}</h3>
                                     </div>
                                     )}
                                 </div>

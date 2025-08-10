@@ -11,18 +11,24 @@ import { article } from 'motion/react-client';
 import UpdateModal from '../Components/UpdateModal';
 
 const MyArticles = () => {
-    const { user, loading, setLoading } = useAuth()
+    const { user } = useAuth()
     const [myArticle, setMyArticle] = useState([])
     const [selectedArticle, setSelectedArticle] = useState(null)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        axios(`${import.meta.env.VITE_API_URL}/articles?email=${user?.email}`)
-            .then(response => {
-                setMyArticle(response?.data || []);
-                setLoading(false);
+        setTimeout(() => {
+            axios(`${import.meta.env.VITE_API_URL}/myArticles?email=${user?.email}`, {
+                withCredentials: true
             })
-            .catch(err => console.log(err));
-    }, []);
+                .then(response => {
+                    setMyArticle(response?.data || []);
+                    setLoading(false);
+                })
+                .catch(err => console.log(err));
+        }, 3000)
+
+    }, [user.email]);
 
     const handleDelete = (_id) => {
         Swal.fire({
