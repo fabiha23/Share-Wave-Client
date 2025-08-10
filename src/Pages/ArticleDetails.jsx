@@ -9,7 +9,7 @@ const ArticleDetails = () => {
   const { user, loading, setLoading } = useAuth();
   const article = useLoaderData();
   const navigate = useNavigate();
-  const location= useLocation()
+  const location = useLocation();
 
   const [mongoUser, setMongoUser] = useState(null);
   const {
@@ -48,14 +48,14 @@ const ArticleDetails = () => {
 
   const handleLike = () => {
     if (!user?.email) {
-  navigate('/login', { state: { from: location?.pathname } });
+      navigate('/login', { state: { from: location?.pathname } });
       return;
     }
 
     axios
       .patch(`${import.meta.env.VITE_API_URL}/like/${_id}`, { email: user.email }, {
-                withCredentials: true
-            })
+        withCredentials: true
+      })
       .then((res) => {
         const isLiked = res?.data?.liked;
         setLiked(isLiked);
@@ -68,7 +68,7 @@ const ArticleDetails = () => {
     e.preventDefault();
 
     if (!user?.email) {
-  navigate('/login', { state: { from: location?.pathname } });
+      navigate('/login', { state: { from: location?.pathname } });
       return;
     }
 
@@ -83,8 +83,8 @@ const ArticleDetails = () => {
 
     axios
       .post(`${import.meta.env.VITE_API_URL}/comments`, newComment, {
-                withCredentials: true
-            })
+        withCredentials: true
+      })
       .then((res) => {
         if (res?.data?.acknowledged) {
           setComments((prev) => [...prev, newComment]);
@@ -110,34 +110,53 @@ const ArticleDetails = () => {
   }, [_id]);
 
   return (
-    <div className="bg-base-200">
-      <section className="max-w-7xl xl:mx-auto mx-3 space-y-5 py-3">
+    <div className="bg-base-200 min-h-screen">
+      <section className="max-w-7xl xl:mx-auto mx-3 space-y-5 py-8">
         {loading ? (
           <Loading />
         ) : (
-          <div className="bg-base-100 p-8 md:px-16 border-2 border-neutral rounded-sm space-y-6">
-            <div className="flex gap-2 items-center">
-              <img className="rounded-full sm:w-10 sm:h-10 w-9 h-9" src={author_photo} alt="" />
+          <div className="bg-base-100 p-6 md:px-12 border-2 border-neutral rounded-lg space-y-6">
+            {/* Author info */}
+            <div className="flex gap-3 items-center">
+              <img className="rounded-full w-10 h-10 object-cover" src={author_photo} alt={author_name} />
               <div>
-                <h4 className="font-semibold text-accent opacity-90 sm:text-lg">{author_name}</h4>
-                <h4 className="text-accent opacity-70 text-sm">Posted on {date}</h4>
+                <h4 className="font-semibold text-accent opacity-90">{author_name}</h4>
+                <div className="flex items-center gap-3">
+                  <span className="text-accent opacity-70 text-sm">Posted on {date}</span>
+                  <span className="badge badge-outline badge-sm text-accent">{category}</span>
+                </div>
               </div>
             </div>
 
-            <div className="space-y-2">
+            {/* Article content */}
+            <div className="space-y-4">
               <h1 className="font-bold text-3xl md:text-4xl text-accent">{title}</h1>
-              <div className="text-info-content sm:space-x-4 space-x-3 text-sm">
+              
+              {/* Thumbnail image */}
+              {thumbnail && (
+                <div className="w-full h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden">
+                  <img 
+                    className="w-full h-full object-cover" 
+                    src={thumbnail} 
+                    alt={title} 
+                    loading="lazy"
+                  />
+                </div>
+              )}
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 text-info-content text-sm">
                 {tags?.map((tag, i) => (
-                  <span key={i}>#{tag}</span>
+                  <span key={i} className="badge badge-outline">#{tag}</span>
                 ))}
               </div>
-              {/* <img className='w-full h-90 object-cover' src={thumbnail} alt="" /> */}
+
+              {/* Content */}
+              <p className="text-lg text-accent opacity-90 leading-loose">{content}</p>
             </div>
 
-            <p className="text-lg text-accent opacity-90 leading-loose pb-6 border-neutral border-b-2">{content}</p>
-
             {/* Like and comment count */}
-            <div className="flex items-center gap-8">
+             <div className="flex items-center gap-8">
               <p className="flex items-center gap-2 sm:text-xl font-medium text-accent">
                 <button
                   onClick={handleLike}
@@ -154,9 +173,14 @@ const ArticleDetails = () => {
             </div>
 
             {/* Comment section */}
-            <div>
-              <div className="flex items-center gap-4">
-                <img className="w-9 rounded-full" src={user?.photoURL} alt="" />
+            <div className="space-y-6">
+              {/* Add comment form */}
+              <div className="flex items-start gap-4">
+                <img 
+                  className="w-10 h-10 rounded-full object-cover" 
+                  src={user?.photoURL || '/default-avatar.png'} 
+                  alt={user?.displayName || 'User'} 
+                />
                 <form onSubmit={handleAddComment} className="relative w-full">
                   <input
                     name="comment"
@@ -171,18 +195,26 @@ const ArticleDetails = () => {
                   />
                 </form>
               </div>
-              {comments && (
-                <div className="flex items-center gap-4">
-                  <div className="w-full">
-                    {comments.map((comment, i) => (
-                      <div className="flex items-center gap-2 mt-4" key={i}>
-                        <img className="w-9 rounded-full" src={comment?.user_photo} alt="" />
-                        <h3 className="border-neutral border-1 p-2 px-4 rounded-sm w-full text-accent opacity-85 font-medium">
-                          {comment?.comment}
-                        </h3>
+
+              {/* Comments list */}
+              {comments.length > 0 && (
+                <div className="space-y-4">
+                  <h3 className="font-semibold text-lg text-accent">Comments</h3>
+                  {comments.map((comment, i) => (
+                    <div className="flex gap-3" key={i}>
+                      <img 
+                        className="w-10 h-10 rounded-full object-cover" 
+                        src={comment?.user_photo} 
+                        alt={comment?.user_name} 
+                      />
+                      <div className="flex-1">
+                        <div className="bg-base-200 p-3 rounded-lg">
+                          <h4 className="font-medium text-accent">{comment?.user_name}</h4>
+                          <p className="text-accent opacity-90 mt-1">{comment?.comment}</p>
+                        </div>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
