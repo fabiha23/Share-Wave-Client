@@ -166,7 +166,7 @@ const Navbar = () => {
             </div>
           )}
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button  */}
           <span className="text-neutral" onClick={() => setOpen(!open)}>
             {open ? <RxCross2 size={32} /> : <IoMenu size={32} className="lg:hidden" />}
           </span>
