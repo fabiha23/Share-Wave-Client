@@ -13,6 +13,7 @@ import ArticleDetails from "../Pages/ArticleDetails";
 import Loading from "../Components/Loading";
 import CategoryArticle from "../Pages/CategoryArticle";
 import Error from "../Pages/Error";
+import FAQ from "../Pages/FAQ";
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
       {
         path:"/categories/:category",
         element:<CategoryArticle></CategoryArticle>
+      },
+      {
+        path:"/faq",
+        element:<FAQ></FAQ>
       }
     ]
   },
