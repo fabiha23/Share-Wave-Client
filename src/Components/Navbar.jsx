@@ -89,6 +89,7 @@ const Navbar = () => {
         About Us
       </NavLink>
     </li>
+    
     <li>
       <NavLink
         to="/faq"

@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/articles/:id",
-        element: <PrivateRoutes><ArticleDetails /></PrivateRoutes>,
+        element: <ArticleDetails />,
         loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/articles/${params.id}`,{credentials:'include'}),
         hydrateFallbackElement:<Loading></Loading>
       },

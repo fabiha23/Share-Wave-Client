@@ -9,6 +9,8 @@ const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
+      const from = location.state?.from || '/';
+
     // const emailRef = useRef();
 
     const handleLogin = (e) => {
@@ -31,7 +33,7 @@ const Login = () => {
                     confirmButtonColor: '#10B981'
                 })
                 console.log('logged in', result);
-                navigate(location?.state || '/');
+    navigate(from, { replace: true });
             })
             .catch((error) => {
                 console.log(error);
@@ -52,7 +54,7 @@ const Login = () => {
                     timer: 3000,
                     confirmButtonColor: '#10B981'
                 })
-                navigate(location?.state || '/');
+    navigate(from, { replace: true });
             })
             .catch((err) => console.log(err));
     };
